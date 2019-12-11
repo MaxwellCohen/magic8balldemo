@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <router-link to="/">
+        <b-navbar-brand>Magic 8 Ball</b-navbar-brand>
+      </router-link>
+
+            <router-link to="/edit">Edit</router-link>
+    </b-navbar>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import Magic8BallPage from "./views/magic8ballpage.vue"; // @ is an alias to /src
 
-#nav {
-  padding: 30px;
+import { NavPlugin } from "bootstrap-vue";
+import { CardPlugin } from 'bootstrap-vue'
+Vue.use(CardPlugin)
+Vue.use(NavPlugin);
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@Component({
+  components: {
+    Magic8BallPage
   }
-}
+})
+export default class Home extends Vue {}
+</script>
+
+<style lang="scss" >
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
 </style>
