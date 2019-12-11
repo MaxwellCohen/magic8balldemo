@@ -1,8 +1,8 @@
 <template>
   <div class="mt-3">
-    <b-card-group deck>
-      <div bg-variant="primary"  v-for="(item, index) in answerList" v-bind:key="index">
-        <b-card bg-variant="light" class="text-center">
+    <b-card-group  class="row">
+      <div class=" col-lg-3 col-md-4 col-sm-12 mt-3" v-for="(item, index) in answerList" v-bind:key="index">
+        <b-card bg-variant="light" class="text-center w-100">
           <b-card-text>{{ item.text }}</b-card-text>
         </b-card>
       </div>
@@ -28,3 +28,6 @@ export default class magic8Ball extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+</style>
